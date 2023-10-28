@@ -49,58 +49,73 @@ class Infinity():
     """
 
     async def print_banner(self):
+        banner = f"""
+        
+                                 ______           ______  __          __   __              
+                                |      \         /      \|  \        |  \ |  \             
+                                \▓▓▓▓▓▓_______ |  ▓▓▓▓▓▓\ ▓▓_______  \▓▓_| ▓▓_   __    __ 
+                                 | ▓▓ |       \| ▓▓_  \▓▓  \       \|  \   ▓▓ \ |  \  |  
+                                 | ▓▓ | ▓▓▓▓▓▓▓\ ▓▓ \   | ▓▓ ▓▓▓▓▓▓▓\ ▓▓\▓▓▓▓▓▓ | ▓▓  | ▓▓
+                                 | ▓▓ | ▓▓  | ▓▓ ▓▓▓▓   | ▓▓ ▓▓  | ▓▓ ▓▓ | ▓▓ __| ▓▓  | ▓▓
+                                _| ▓▓_| ▓▓  | ▓▓ ▓▓     | ▓▓ ▓▓  | ▓▓ ▓▓ | ▓▓|  \ ▓▓__/ ▓▓
+                               |   ▓▓ \ ▓▓  | ▓▓ ▓▓     | ▓▓ ▓▓  | ▓▓ ▓▓  \▓▓  ▓▓\▓▓    ▓▓
+                                \▓▓▓▓▓▓\▓▓   \▓▓\▓▓      \▓▓\▓▓   \▓▓\▓▓   \▓▓▓▓ _\▓▓▓▓▓▓▓
+                                                                                |  \__| ▓▓
+                                                                                 \▓▓    ▓▓
+                                                                                   \▓▓▓▓▓▓
+                                                                        """.replace("_", f"{Fore.RESET}_{Fore.RESET}").replace(f'|', f"{Fore.RESET}|{Fore.RESET}").replace("▓", f"{magenta}▓{Fore.RESET}")
+        print(f"{banner}\n\n")
         os.system("clear")
-        print(f"""
-                 {magenta}_____          __  _         _  _                     {Fore.WHITE}__ 
-                {magenta}|_   _|        / _|(_)       (_)| |                   {Fore.WHITE}/_ |
-                  {magenta}| |   _ __  | |_  _  _ __   _ | |_  _   _    {Fore.WHITE}__   __ | |
-                  {magenta}| |  | '_ \ |  _|| || '_ \ | || __|| | | |   {Fore.WHITE}\ \ / / | |
-                {magenta} _| |_ | | | || |  | || | | || || |_ | |_| |    {Fore.WHITE}\ V /  | |
-                {magenta}|_____||_| |_||_|  |_||_| |_||_| \__| \__, |     {Fore.WHITE}\_/   |_|
-                                                       {magenta}__/ |           
-                                                      {magenta}|___/            
-                                                      
-""")
 
 
     async def menu(self):
         os.system("clear")
+        banner = f"""
+        
+                                 ______           ______  __          __   __              
+                                |      \         /      \|  \        |  \ |  \             
+                                 \▓▓▓▓▓▓_______ |  ▓▓▓▓▓▓\ ▓▓_______  \▓▓_| ▓▓_   __    __ 
+                                 | ▓▓ |       \| ▓▓_  \▓▓  \       \|  \   ▓▓ \ |  \  |  
+                                 | ▓▓ | ▓▓▓▓▓▓▓\ ▓▓ \   | ▓▓ ▓▓▓▓▓▓▓\ ▓▓\▓▓▓▓▓▓ | ▓▓  | ▓▓
+                                 | ▓▓ | ▓▓  | ▓▓ ▓▓▓▓   | ▓▓ ▓▓  | ▓▓ ▓▓ | ▓▓ __| ▓▓  | ▓▓
+                                _| ▓▓_| ▓▓  | ▓▓ ▓▓     | ▓▓ ▓▓  | ▓▓ ▓▓ | ▓▓|  \ ▓▓__/ ▓▓
+                               |   ▓▓ \ ▓▓  | ▓▓ ▓▓     | ▓▓ ▓▓  | ▓▓ ▓▓  \▓▓  ▓▓\▓▓    ▓▓
+                                \▓▓▓▓▓▓\▓▓   \▓▓\▓▓      \▓▓\▓▓   \▓▓\▓▓   \▓▓▓▓ _\▓▓▓▓▓▓▓
+                                                                                |  \__| ▓▓
+                                                    {magenta}@vxiws{w} On Cord               \▓▓    ▓▓
+                                                                                  \▓▓▓▓▓▓
+
+
+                                {magenta}01{w}: Scrape Server       {magenta}05{w}: Make Channels     {magenta}00{w}: Coming Soon
+                                {magenta}02{w}: Ban Member/IDs      {magenta}06{w}: Delete Roles      {magenta}00{w}: Coming Soon
+                                {magenta}03{w}: Kick Members        {magenta}07{w}: Make Roles        {magenta}00{w}: Coming Soon
+                                {magenta}04{w}: Delete Channels     {magenta}08{w}: Spam Messages     {magenta}00{w}: Coming Soon
+
+
+                                                                       {w}""".replace("_", f"{Fore.RESET}_{Fore.RESET}").replace(f'|', f"{Fore.RESET}|{Fore.RESET}").replace("▓", f"{magenta}▓{Fore.RESET}")
         ch = input(f"""
-                 {magenta}_____          __  _         _  _                     {Fore.WHITE}__ 
-                {magenta}|_   _|        / _|(_)       (_)| |                   {Fore.WHITE}/_ |
-                  {magenta}| |   _ __  | |_  _  _ __   _ | |_  _   _    {Fore.WHITE}__   __ | |
-                  {magenta}| |  | '_ \ |  _|| || '_ \ | || __|| | | |   {Fore.WHITE}\ \ / / | |
-                {magenta} _| |_ | | | || |  | || | | || || |_ | |_| |    {Fore.WHITE}\ V /  | |
-                {magenta}|_____||_| |_||_|  |_||_| |_||_| \__| \__, |     {Fore.WHITE}\_/   |_|
-                                                       {magenta}__/ |           
-                                                      {magenta}|___/
+{banner}
 
-                              >>{blue} Made By Krizz ~ Dont Skid
+{magenta}[{blue}Infinity {w}v1.11{magenta}]{w} Choice {blue}~$ {Fore.WHITE}""")
 
+        if ch in ["01", "1"]:
 
-                {blue}({w}1{blue}){w} Scrape Server   {blue}({w}4{blue}){w} Delete Channels   {blue}({w}7{blue}){w} Spam Roles
-                {blue}({w}2{blue}){w} Ban Members     {blue}({w}5{blue}){w} Spam Channels     {blue}({w}8{blue}){w} Spam Messages
-                {blue}({w}3{blue}){w} Kick Members    {blue}({w}6{blue}){w} Delete Roles
-
-
-{magenta}[{blue}Infinity {w}v1{magenta}]{w} Choice {blue}~$ {Fore.WHITE}""")
-
-        if ch == "1":
             guild = input(f"\n{gray}{t}{Fore.WHITE}   {Fore.WHITE}Guild ID {blue}>> {Fore.WHITE}")
             await self.scrape_server(guild)
-        elif ch == "2":
+
+        elif ch in ["02", "2"]:
             await self.ban_members()
-        elif ch == "3":
+        elif ch in ["03", "3"]:
             await self.kick_members()
-        elif ch == "4":
+        elif ch in ["04", "4"]:
             await self.delete_channels()
-        elif ch == "5":
+        elif ch in ["05", "5"]:
             await self.make_channels()
-        elif ch == "6":
+        elif ch in ["06", "6"]:
             await self.delete_roles()
-        elif ch == "7":
+        elif ch in ["07", "7"]:
             await self.make_roles()
-        elif ch == "8":
+        elif ch in ["08", "8"]:
             await self.spam_messages()
 
 
