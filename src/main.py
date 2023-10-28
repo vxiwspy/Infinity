@@ -1,5 +1,6 @@
-import asyncio, time, aiolimiter, random, string, os
+import asyncio, time, aiolimiter, random, string, os, requests
 
+from typing import Callable
 from colored import fg
 from colorama import Fore
 from aiohttp import ClientSession
@@ -8,17 +9,18 @@ from datetime import datetime
 import discord
 from discord.ext import commands
 
+#for designing, bad code
+
 now = datetime.now()
 t = now.strftime("%H:%M:%S")
-
-
 gray = fg(59)
 magenta = fg(93)
 blue = fg(57)
 w = Fore.WHITE
 
+########################
+
 vxiw = commands.Bot(command_prefix="krizz", intents=discord.Intents.all())
-os.system("clear")
 token = input(f"{gray}{t}{Fore.WHITE}   {Fore.WHITE}Token {blue}>> {Fore.WHITE}")
 
 class Infinity():
@@ -26,18 +28,25 @@ class Infinity():
     def __init__(self, token, limit=50):
 
         self.__VERSION__ = "1.0.0"
-        self.__AUTHOR__  = "@vxiw on cord"
+        self.__AUTHOR__  = "@vxiws on cord"
 
         self.token   =  token
         self.limiter =  aiolimiter.AsyncLimiter(limit, 1)
 
         self.ng = ""
 
-    def get_headers(self):
+    def get_headers(self: str) -> dict:
+        """ returns headers of the token """
+
         return {"authorization": f"Bot {self.token}"}
     
+    """
+    def get_cookies(self, token = self.token) -> Callable:
+        session  = requests.Session()
+        response = session.get("https://discord.com/api/v9/users/@me", headers={"authorization": token})
 
-    
+        return session.cookies.get_dict()
+    """
 
     async def print_banner(self):
         os.system("clear")
@@ -71,7 +80,7 @@ class Infinity():
 
                 {blue}({w}1{blue}){w} Scrape Server   {blue}({w}4{blue}){w} Delete Channels   {blue}({w}7{blue}){w} Spam Roles
                 {blue}({w}2{blue}){w} Ban Members     {blue}({w}5{blue}){w} Spam Channels     {blue}({w}8{blue}){w} Spam Messages
-                {blue}({w}3{blue}){w} Kick Members    {blue}({w}6{blue}){w} Delete Roles      {blue}({w}0{blue}){w} Next Page
+                {blue}({w}3{blue}){w} Kick Members    {blue}({w}6{blue}){w} Delete Roles
 
 
 {magenta}[{blue}Infinity {w}v1{magenta}]{w} Choice {blue}~$ {Fore.WHITE}""")
