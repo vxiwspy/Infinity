@@ -419,12 +419,6 @@ class Infinity():
         await self.menu()
     """
 
-
-
-#1137003618126540842
-
-#MTE0NjAxMjUwOTg4NzgwMzQ2NA.GJXL2A.N2iCG6umHU_SWUAb4l4IGSuME34khFIk9ErSCc
-
 infinity = Infinity(token)
 
 os.system("clear")
