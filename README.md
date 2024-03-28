@@ -1,3 +1,6 @@
+# Disclaimer
+**This Repo Is Only Here For Educational Purposes, I Dont Condone To ANY Damage Done Using This Tool.**
+
 # Preview
 ![Preview](preview.png)
 
@@ -18,6 +21,4 @@ python3 main.py
 
 # Future
 
-> v2 is currently in development adding the 2nd page (User token things like token nuker etc..) with way better code
-
-Dont Skid
+Discontinued.
