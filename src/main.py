@@ -33,8 +33,6 @@ class Infinity():
         self.token   =  token
         self.limiter =  aiolimiter.AsyncLimiter(limit, 1)
 
-        self.ng = ""
-
     def get_headers(self: str) -> dict:
         """ returns headers of the token """
 
@@ -353,7 +351,7 @@ class Infinity():
 
     async def r_c(self, g):
 
-        guild = self.ng
+        guild = g
         with open("scraped/channels.txt", "w") as chs:
             for c in guild.channels:
                 chs.write(f"{c.id}\n")
