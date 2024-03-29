@@ -27,7 +27,7 @@ class Infinity():
 
     def __init__(self, token, limit=50):
 
-        self.__VERSION__ = "1.0.0"
+        self.__VERSION__ = "1.1.0"
         self.__AUTHOR__  = "@vxiws on cord"
 
         self.token   =  token
