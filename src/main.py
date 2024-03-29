@@ -28,7 +28,7 @@ class Infinity():
     def __init__(self, token, limit=50):
 
         self.__VERSION__ = "1.1.0"
-        self.__AUTHOR__  = "@vxiws on cord"
+        self.__AUTHOR__  = "@vxiws/Phantom111.py on cord"
 
         self.token   =  token
         self.limiter =  aiolimiter.AsyncLimiter(limit, 1)
@@ -82,7 +82,7 @@ class Infinity():
                                |   ▓▓ \ ▓▓  | ▓▓ ▓▓     | ▓▓ ▓▓  | ▓▓ ▓▓  \▓▓  ▓▓\▓▓    ▓▓
                                 \▓▓▓▓▓▓\▓▓   \▓▓\▓▓      \▓▓\▓▓   \▓▓\▓▓   \▓▓▓▓ _\▓▓▓▓▓▓▓
                                                                                 |  \__| ▓▓
-                                                    {magenta}@vxiws{w} On Cord               \▓▓    ▓▓
+                                                    {magenta}@vxiws/phantom{w} On Cord       \▓▓    ▓▓
                                                                                   \▓▓▓▓▓▓
 
 
