@@ -1,0 +1,8 @@
+discord
+aiohttp
+aiolimiter
+datetime
+requests
+colored
+pystyle
+colorama

@@ -9,7 +9,7 @@ from datetime import datetime
 import discord
 from discord.ext import commands
 
-#for designing, bad code
+#(now, t, gray, magenta, blue, w) -> For Desiging The UI
 
 now = datetime.now()
 t = now.strftime("%H:%M:%S")
@@ -18,7 +18,6 @@ magenta = fg(93)
 blue = fg(57)
 w = Fore.WHITE
 
-########################
 
 vxiw = commands.Bot(command_prefix="krizz", intents=discord.Intents.all())
 token = input(f"{gray}{t}{Fore.WHITE}   {Fore.WHITE}Token {blue}>> {Fore.WHITE}")
@@ -27,11 +26,39 @@ class Infinity():
 
     def __init__(self, token, limit=50):
 
-        self.__VERSION__ = "1.1.0"
+        self.__VERSION__ = "1.1.2"
         self.__AUTHOR__  = "@vxiws/Phantom111.py on cord"
 
         self.token   =  token
         self.limiter =  aiolimiter.AsyncLimiter(limit, 1)
+
+        self.get_rate_limit()
+
+    def get_version(self):
+        pass
+
+    def get_rate_limit(self) -> dict:
+        resp = requests.get("https://discord.com/api/v9/users/@me", headers=self.get_headers())
+
+        if resp.status_code in [200,201]:
+            #print(resp.headers) -> For Debugging
+            remaining = resp.headers["x-ratelimit-remaining"]
+            maxlimit  = resp.headers["x-ratelimit-limit"]
+            reset     = resp.headers["x-ratelimit-reset-after"]
+            ratelimit = {
+                "remaining": remaining,
+                "max": maxlimit,
+                "reset": reset
+            }
+            return ratelimit
+
+        else:
+            return {
+                "remaining": None,
+                "max": None,
+                "reset": None
+            }
+
 
     def get_headers(self: str) -> dict:
         """ returns headers of the token """
@@ -67,6 +94,12 @@ class Infinity():
 
 
     async def menu(self):
+
+        ratelimit = self.get_rate_limit()
+        r = ratelimit["remaining"]
+        m = ratelimit["max"]
+        rs = ratelimit["reset"]
+
         os.system("clear")
         banner = f"""
         
@@ -83,18 +116,20 @@ class Infinity():
                                                     {magenta}@vxiws/phantom{w} On Cord       \▓▓    ▓▓
                                                                                   \▓▓▓▓▓▓
 
+                                    {magenta}RateLimit: {w}{r}{magenta}/{m}{w}          {magenta}Reset After: {w}{rs}{magenta}s{w}
 
-                                {magenta}01{w}: Scrape Server       {magenta}05{w}: Make Channels     {magenta}00{w}: Coming Soon
-                                {magenta}02{w}: Ban Member/IDs      {magenta}06{w}: Delete Roles      {magenta}00{w}: Coming Soon
-                                {magenta}03{w}: Kick Members        {magenta}07{w}: Make Roles        {magenta}00{w}: Coming Soon
-                                {magenta}04{w}: Delete Channels     {magenta}08{w}: Spam Messages     {magenta}00{w}: Coming Soon
+
+                                {magenta}01{w}: Scrape Server       {magenta}05{w}: Make Channels     {magenta}00{w}: Make Webhooks
+                                {magenta}02{w}: Ban Member/IDs      {magenta}06{w}: Delete Roles      {magenta}00{w}: Spam Webhooks
+                                {magenta}03{w}: Kick Members        {magenta}07{w}: Make Roles        {magenta}00{w}: 1 Day Prune
+                                {magenta}04{w}: Delete Channels     {magenta}08{w}: Spam Messages     {magenta}00{w}: Rename Guild
 
 
                                                                        {w}""".replace("_", f"{Fore.RESET}_{Fore.RESET}").replace(f'|', f"{Fore.RESET}|{Fore.RESET}").replace("▓", f"{magenta}▓{Fore.RESET}")
         ch = input(f"""
 {banner}
 
-{magenta}[{blue}Infinity {w}v1.11{magenta}]{w} Choice {blue}~$ {Fore.WHITE}""")
+{magenta}[{blue}Infinity {w}v1.1.2{magenta}]{w} Choice {blue}~$ {Fore.WHITE}""")
 
         if ch in ["01", "1"]:
 
@@ -115,6 +150,9 @@ class Infinity():
             await self.make_roles()
         elif ch in ["08", "8"]:
             await self.spam_messages()
+        else:
+            input("Coming Soon/Next Update... Press Enter To Return")
+            await self.menu()
 
 
     async def scrape_server(self, guild_id):

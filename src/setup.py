@@ -1,10 +1,9 @@
 import os
 
 os.system("clear || cls")
+print("Running Setup... It can take up to 5 minutes depending on your specs/internet speed")
 
-modules = ["discord", "aiohttp", "aiolimiter", "colorama", "requests", "datetime", "colored", "pystyle"] # more to come
 
-for i in modules: os.system(f"pip install -q {i}");
-
-os.system("python main.py")
-exit()
+os.system(f"pip install -r requirements.txt")
+os.system("clear || cls")
+os.system("python3 main.py || py main.py")
