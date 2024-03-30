@@ -13,12 +13,13 @@ Max Speed Reached : 50 Requests/s (tested on id bans)
 
 # Installation
 
-- Download The "src" Directory
-- Install The Required Modules Using pip.
-```
-python3 main.py
-```
+## Linux / Termux 
+If Your Linux/Terrmux Is Freshly Installed It Might Thrw Errors So Update The Repositories First
 
-# Future
 
-Discontinued.
+```mkdir Infinity && tar -xvzf Infinity.tar.gz -C Infinity && cd Infinity && python3 setup.py```
+## Windows 
+- Make New Folder Paste The Latest Release In There
+- Extract The Release File
+- run setup.py
+
