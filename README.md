@@ -2,7 +2,7 @@
 **This Repo Is Only Here For Educational Purposes, I Dont Condone To ANY Damage Done Using This Tool.**
 
 # Preview
-![Preview](preview.png)
+![Preview](Preview.png)
 
 # Information About This Repo
 
