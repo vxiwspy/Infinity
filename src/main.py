@@ -31,7 +31,7 @@ class Infinity():
 
         self.token   =  token
         self.limiter =  aiolimiter.AsyncLimiter(limit, 1)
-
+		self.scraped_guild = None
         self.get_rate_limit()
 
     def get_version(self):
@@ -162,7 +162,7 @@ class Infinity():
         async def on_ready():
 
             guild = vxiw.get_guild(int(guild_id))
-            self.ng = guild
+            self.scraped_guild = guild
 
             with open("scraped/members.txt", "w") as membs:
                 for m in guild.members:
@@ -404,8 +404,8 @@ class Infinity():
         guild    = input(f"{gray}{t}{Fore.WHITE}   {Fore.WHITE}Guild ID   {blue}>> {Fore.WHITE}")
         message  = input(f"{gray}{t}{Fore.WHITE}   {Fore.WHITE}Message    {blue}>> {Fore.WHITE}")
         times    = input(f"{gray}{t}{Fore.WHITE}   {Fore.WHITE}Times      {blue}>> {Fore.WHITE}")
-
-        await self.r_c(guild)
+		await self.scrape_server(guild)
+        await self.r_c(self.scraped_guild)
 
         with open("scraped/channels.txt", "r") as chs:
             channels = chs.readlines()
